@@ -1,6 +1,8 @@
 <head>
     <title>Lean canvas editor online</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"
+        integrity="sha256-my/qJggBjG+JoaR9MUSkYM+EpxVkxZRNn3KODs+el74=" crossorigin="anonymous"></script>
     <style type="text/css">
         body {
             font-family: 'Roboto', sans-serif;
@@ -76,19 +78,49 @@
             border-bottom: none;
         }
 
+        .no_top_border {
+            border-top-style: none !important;
+        }
+
+        .no_top_margin {
+            margin: 0 !important;
+        }
+
         #main {
+            margin: 10px 0 0 0;
             text-align: left;
             border-style: solid;
             border-width: thin;
             border-color: #cbcaca;
             display: inline-flex;
             width: 90%;
+            background-color: white;
         }
 
         #copy_footer {
-            margin-top: 10px;
+            padding-top: 10px;
             color: grey;
             font-size: 0.8em;
+            display: inline-flex;
+            width: 90%;
+            background-color: white;
+        }
+
+        #copy_footer>div {
+            flex: 1;
+        }
+
+        #copy_footer_nav {
+            text-align: left;
+        }
+
+        #copy_footer_nav>span {
+            margin: 0 10px 0 10px;
+            cursor: pointer;
+        }
+
+        #copy_footer_author {
+            text-align: right;
         }
     </style>
 </head>
@@ -176,7 +208,7 @@
             </div>
         </div>
         <div id="bottom_section">
-            <div id="main">
+            <div id="main" class="no_top_border no_top_margin">
                 <div id="section_cost_struct" class="section">
                     <span class="section_title">COST STRUCTURE</span>
                     <span class="section_subtitle">List your fixed and variable costs.</span>
@@ -191,11 +223,36 @@
                 </div>
             </div>
         </div>
-        <div id="copy_footer">Made with ❤️ by <a target="_blank" href="https://twitter.com/h4ck4life">Alif</a></div>
     </div>
+        <div id="copy_footer">
+            <div id="copy_footer_nav">
+                <span id="btn_exportAsImage">Export as image</span>|<span id="btn_print">Print</span>
+            </div>
+            <div id="copy_footer_author">
+                Made with ❤️ by <a target="_blank" href="https://twitter.com/h4ck4life">Alif</a>
+            </div>
+        </div>
+    
     <script type="text/javascript">
         window.onbeforeunload = function (e) {
             return 'Reload site?';
+        };
+
+        document.getElementById('btn_print').onclick = function () {
+            window.print();
+        };
+
+        document.getElementById('btn_exportAsImage').onclick = function () {
+            html2canvas(document.getElementById('lean_canvas'),
+                {
+                    onrendered: function (canvas) {
+                        var a = document.createElement('a');
+                        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+                        a.href = canvas.toDataURL("image/png");
+                        a.download = 'lean_canvas.jpg';
+                        a.click();
+                    }
+                });
         };
     </script>
 </body>
