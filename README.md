@@ -1,4 +1,4 @@
-### Browse
+### Projects
 
 * Lean canvas editor - [https://h4ck4life.github.io/lean_canvas/index.html](https://h4ck4life.github.io/lean_canvas/index.html)
 
