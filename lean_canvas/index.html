@@ -245,6 +245,13 @@
         };
 
         document.getElementById('btn_print').onclick = function () {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Export',
+                eventAction: 'WebPrint',
+                eventLabel: 'Print lean canvas in browser'
+            });
+
             window.print();
         };
 
@@ -253,12 +260,18 @@
                 {
                     onrendered: function (canvas) {
                         var a = document.createElement('a');
-                        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
                         a.href = canvas.toDataURL("image/png");
                         a.download = 'lean_canvas.jpg';
                         a.click();
                     }
                 });
+
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Export',
+                eventAction: 'ExportAsImage',
+                eventLabel: 'Export lean canvas as image'
+            });
         };
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
