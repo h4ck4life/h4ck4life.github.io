@@ -15,6 +15,7 @@ body {
     font-size: 1em;
     display: block;
     font-weight: bold;
+    color: #ef7a7a;
     /* border-bottom: 1px solid #e8e8e8; */
 }
 
@@ -27,13 +28,13 @@ body {
 }
 
 .section_editable {
-    margin-top: 1em;
+    margin-top: 1.5em;
     display: block;
     /* height: 30%; */
     padding: 0.2em;
     /* overflow-y: scroll; */
     color: #585858;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .section_editable:hover {
@@ -104,6 +105,11 @@ body {
     flex: 1;
 }
 
+.copy_footer > div > span > i {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
 .left_nav {
     text-align: left;
 }
@@ -113,8 +119,8 @@ body {
     cursor: pointer;
 }
 
-.left_nav>span:hover {
-    color: rgb(59, 49, 197);
+.left_nav>span:hover, .right_nav>span:hover {
+    color: rgb(27, 27, 27);
 }
 
 .right_nav {

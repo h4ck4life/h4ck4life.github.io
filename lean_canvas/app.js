@@ -88,7 +88,7 @@
     document.getElementById('btn_open').onclick = function () {
         openFileSelectWindow(".leancanvas", false, function (event) {
             [...this.files].forEach(file => {
-                document.getElementById('filename').innerHTML = 'File opening → <b>' + file.name + '</b>';
+                document.getElementById('filename').innerHTML = '<i class="fas fa-file-alt"></i> <b>' + file.name + '</b>';
                 var reader = new FileReader();
                 reader.readAsText(file, 'UTF-8');
                 reader.onload = readerEvent => {
