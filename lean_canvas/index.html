@@ -1,135 +1,22 @@
 <head>
     <title>Lean canvas editor online</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"
         integrity="sha256-my/qJggBjG+JoaR9MUSkYM+EpxVkxZRNn3KODs+el74=" crossorigin="anonymous"></script>
-    <style type="text/css">
-        body {
-            font-family: 'Roboto', sans-serif;
-            text-align: center;
-        }
-
-        .section {
-            flex: 1;
-            padding: 1em;
-            border-right-width: thin;
-            border-right-style: solid;
-            border-color: #cbcaca;
-        }
-
-        .section_title {
-            font-size: 1em;
-            display: block;
-            font-weight: bold;
-            /* border-bottom: 1px solid #e8e8e8; */
-        }
-
-        .section_subtitle {
-            font-size: 0.8em;
-            display: block;
-            color: #888888;
-            margin-top: 0.3em;
-            font-style: italic;
-        }
-
-        .section_editable {
-            margin-top: 1em;
-            display: block;
-            /* height: 30%; */
-            padding: 0.2em;
-            /* overflow-y: scroll; */
-            color: #585858;
-            font-size: 0.8em;
-        }
-
-        .section_editable:hover {
-            border-color: #cbcaca;
-            border-style: solid;
-            border-width: thin;
-        }
-
-        .section_no_right_border {
-            border-right-style: none;
-        }
-
-        #upper_section>#main {
-            min-height: 60%;
-        }
-
-        #bottom_section>#main {
-            min-height: 30%;
-        }
-
-        .multi_rows {
-            padding: 0;
-            position: relative;
-            display: flex;
-            flex-flow: column;
-        }
-
-        .border_top_thin {
-            border-top-style: solid;
-            border-top-width: thin;
-        }
-
-        .no_bold {
-            font-weight: normal;
-            font-size: 0.8em;
-            border-bottom: none;
-        }
-
-        .no_top_border {
-            border-top-style: none !important;
-        }
-
-        .no_top_margin {
-            margin: 0 !important;
-        }
-
-        #main {
-            margin: 10px 0 0 0;
-            text-align: left;
-            border-style: solid;
-            border-width: thin;
-            border-color: #cbcaca;
-            display: inline-flex;
-            width: 90%;
-            background-color: white;
-        }
-
-        #copy_footer {
-            padding-top: 10px;
-            color: grey;
-            font-size: 0.8em;
-            display: inline-flex;
-            width: 90%;
-            background-color: white;
-        }
-
-        #copy_footer>div {
-            flex: 1;
-        }
-
-        #copy_footer_nav {
-            text-align: left;
-        }
-
-        #copy_footer_nav>span {
-            margin: 0 10px 0 10px;
-            cursor: pointer;
-        }
-
-        #copy_footer_nav>span:hover {
-            color: rgb(59, 49, 197);
-        }
-
-        #copy_footer_author {
-            text-align: right;
-        }
-    </style>
 </head>
 
 <body>
+    <div id="copy_footer">
+        <div class="right_nav">
+            <span id="btn_open">Open...</span>
+            |
+            <span id="btn_save">Save</span>
+        </div>
+        <div class="left_nav">
+                <span id="filename"></span>
+            </div>
+    </div>
     <div id="lean_canvas">
         <div id="upper_section">
             <div id="main">
@@ -137,7 +24,7 @@
                     <div id="section_problem" class="section section_no_right_border">
                         <span class="section_title">1. PROBLEM</span>
                         <span class="section_subtitle">List your top 1-3 problems.</span>
-                        <div class="section_editable" spellcheck="false" contenteditable="true"
+                        <div class="section_editable" tabindex="1" spellcheck="false" contenteditable="true"
                             aria-placeholder="Type something here.."></div>
                     </div>
                     <div id="section_existing_alt" class="section section_no_right_border">
@@ -151,14 +38,14 @@
                     <div id="section_solution" class="section section_no_right_border">
                         <span class="section_title">4. SOLUTION</span>
                         <span class="section_subtitle">Outline a possible solution for each problem.</span>
-                        <div class="section_editable" spellcheck="false" contenteditable="true"
+                        <div class="section_editable" tabindex="4" spellcheck="false" contenteditable="true"
                             aria-placeholder="Type something here.."></div>
                     </div>
                     <div id="section_key_metrics" class="section section_no_right_border border_top_thin">
                         <span class="section_title">8. KEY METRICS</span>
                         <span class="section_subtitle">List the key numbers that tell you how your business is
                             doing.</span>
-                        <div class="section_editable" spellcheck="false" contenteditable="true"
+                        <div class="section_editable" tabindex="8" spellcheck="false" contenteditable="true"
                             aria-placeholder="Type something here.."></div>
                     </div>
                 </div>
@@ -170,7 +57,7 @@
                             and
                             worth
                             paying attention.</span>
-                        <div class="section_editable" spellcheck="false" contenteditable="true"
+                        <div class="section_editable" tabindex="3" spellcheck="false" contenteditable="true"
                             aria-placeholder="Type something here.."></div>
                     </div>
                     <div id="section_high_level_concept" class="section section_no_right_border">
@@ -185,13 +72,13 @@
                     <div id="section_unfair_adv" class="section section_no_right_border">
                         <span class="section_title">5. UNFAIR ADVANTAGE</span>
                         <span class="section_subtitle">Something that cannot easily be bought or copied.</span>
-                        <div class="section_editable" spellcheck="false" contenteditable="true"
+                        <div class="section_editable" tabindex="5" spellcheck="false" contenteditable="true"
                             aria-placeholder="Type something here.."></div>
                     </div>
                     <div id="section_channels" class="section section_no_right_border border_top_thin">
                         <span class="section_title">9. CHANNELS</span>
                         <span class="section_subtitle">List your path to customers (inbound or outbound).</span>
-                        <div class="section_editable" spellcheck="false" contenteditable="true"
+                        <div class="section_editable" tabindex="9" spellcheck="false" contenteditable="true"
                             aria-placeholder="Type something here.."></div>
                     </div>
                 </div>
@@ -199,7 +86,7 @@
                     <div id="section_customer_seg" class="section section_no_right_border">
                         <span class="section_title">2. CUSTOMER SEGMENTS</span>
                         <span class="section_subtitle">List your target customers and users.</span>
-                        <div class="section_editable" spellcheck="false" contenteditable="true"
+                        <div class="section_editable" tabindex="2" spellcheck="false" contenteditable="true"
                             aria-placeholder="Type something here.."></div>
                     </div>
                     <div id="section_early_adopters" class="section section_no_right_border bottom_content">
@@ -216,64 +103,33 @@
                 <div id="section_cost_struct" class="section">
                     <span class="section_title">7. COST STRUCTURE</span>
                     <span class="section_subtitle">List your fixed and variable costs.</span>
-                    <div class="section_editable" spellcheck="false" contenteditable="true"
+                    <div class="section_editable" tabindex="7" spellcheck="false" contenteditable="true"
                         aria-placeholder="Type something here.."></div>
                 </div>
                 <div id="section_rev_streams" class="section section_no_right_border">
                     <span class="section_title">6. REVENUE STREAMS</span>
                     <span class="section_subtitle">List your sources of revenue.</span>
-                    <div class="section_editable" spellcheck="false" contenteditable="true"
+                    <div class="section_editable" tabindex="6" spellcheck="false" contenteditable="true"
                         aria-placeholder="Type something here.."></div>
                 </div>
             </div>
         </div>
     </div>
     <div id="copy_footer">
-        <div id="copy_footer_nav">
-            <span id="btn_exportAsImage">Export as image</span>|<span id="btn_print">Print</span>|<span><a
+        <div id="copy_footer_nav" class="left_nav">
+            <span id="btn_exportAsImage">Export as image</span>
+            |
+            <span id="btn_print">Print</span>
+            |
+            <span><a
                     style="text-decoration: none;" target="_blank"
                     href="https://user.oc-static.com/upload/2017/09/26/15064249490516_Deezer.png">See example</a></span>
         </div>
-        <div id="copy_footer_author">
+        <div id="copy_footer_author" class="right_nav">
             Made with ❤️ by <a target="_blank" href="https://twitter.com/h4ck4life">Alif</a>
         </div>
     </div>
-
-    <script type="text/javascript">
-        window.onbeforeunload = function (e) {
-            return 'Reload site?';
-        };
-
-        document.getElementById('btn_print').onclick = function () {
-            ga('send', {
-                hitType: 'event',
-                eventCategory: 'Export',
-                eventAction: 'WebPrint',
-                eventLabel: 'Print lean canvas in browser'
-            });
-
-            window.print();
-        };
-
-        document.getElementById('btn_exportAsImage').onclick = function () {
-            html2canvas(document.getElementById('lean_canvas'),
-                {
-                    onrendered: function (canvas) {
-                        var a = document.createElement('a');
-                        a.href = canvas.toDataURL("image/png");
-                        a.download = 'lean_canvas.jpg';
-                        a.click();
-                    }
-                });
-
-            ga('send', {
-                hitType: 'event',
-                eventCategory: 'Export',
-                eventAction: 'ExportAsImage',
-                eventLabel: 'Export lean canvas as image'
-            });
-        };
-    </script>
+    <script src="app.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36924547-2"></script>
     <script>
