@@ -86,8 +86,9 @@
     };
 
     document.getElementById('btn_open').onclick = function () {
-        openFileSelectWindow(".leancanvas,text/plain", false, function (event) {
+        openFileSelectWindow(".leancanvas", false, function (event) {
             [...this.files].forEach(file => {
+                document.getElementById('filename').innerText = 'Opening file → ' + file.name;
                 var reader = new FileReader();
                 reader.readAsText(file, 'UTF-8');
                 reader.onload = readerEvent => {
