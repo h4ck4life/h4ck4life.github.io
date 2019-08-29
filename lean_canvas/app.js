@@ -88,7 +88,7 @@
     document.getElementById('btn_open').onclick = function () {
         openFileSelectWindow(".leancanvas", false, function (event) {
             [...this.files].forEach(file => {
-                document.getElementById('filename').innerText = 'Opening file → ' + file.name;
+                document.getElementById('filename').innerHTML = 'File opening → <b>' + file.name + '</b>';
                 var reader = new FileReader();
                 reader.readAsText(file, 'UTF-8');
                 reader.onload = readerEvent => {
