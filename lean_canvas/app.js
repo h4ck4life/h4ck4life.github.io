@@ -130,4 +130,7 @@
         changeSectionTitleFontColor('#7a9def');
     }
 
+    document.getElementById('color_green').onclick = function () {
+        changeSectionTitleFontColor('#64BE64');
+    }
 })()

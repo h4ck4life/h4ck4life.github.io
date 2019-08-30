@@ -154,3 +154,11 @@ body {
 #color_blue:hover {
     color: #7a9def;
 }
+
+#color_green {
+    color: rgb(179, 247, 179);
+}
+
+#color_green:hover {
+    color: #64BE64;
+}
