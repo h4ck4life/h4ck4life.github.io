@@ -1,5 +1,12 @@
 (function () {
 
+    var changeSectionTitleFontColor = function (color) {
+        var all = document.getElementsByClassName('section_title');
+        for (var i = 0; i < all.length; i++) {
+            all[i].style.color = color;
+        }
+    }
+
     var openFileSelectWindow = function (accept, multy = false, callback) {
         var inputElement = document.createElement("input");
         inputElement.type = "file";
@@ -110,5 +117,17 @@
             });
         });
     };
+
+    document.getElementById('color_black').onclick = function () {
+        changeSectionTitleFontColor('black');
+    }
+
+    document.getElementById('color_red').onclick = function () {
+        changeSectionTitleFontColor('#ef7a7a');
+    }
+
+    document.getElementById('color_blue').onclick = function () {
+        changeSectionTitleFontColor('#7a9def');
+    }
 
 })()
