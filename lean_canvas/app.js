@@ -65,7 +65,7 @@
 
     document.getElementById('btn_save').onclick = function () {
         var filename = prompt("Please enter the file name to save");
-        if (filename == '') {
+        if (filename == '' || filename == null) {
             return false;
         }
         var saveObj = {
