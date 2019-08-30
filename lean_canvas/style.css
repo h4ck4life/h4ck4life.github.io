@@ -126,3 +126,31 @@ body {
 .right_nav {
     text-align: right;
 }
+
+.left_nav>span.color_theme:hover {
+    color: grey;
+}
+
+#color_black {
+    color: rgb(201, 201, 201);
+}
+
+#color_black:hover {
+    color: black;
+}
+
+#color_red {
+    color: #f8a9a9;
+}
+
+#color_red:hover {
+    color: #ef7a7a;
+}
+
+#color_blue {
+    color: #adc2f5;
+}
+
+#color_blue:hover {
+    color: #7a9def;
+}
