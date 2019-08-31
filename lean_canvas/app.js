@@ -1,6 +1,7 @@
 (function () {
 
-    var switchPageThemeMode = function (styleClasses) {
+    var switchPageThemeMode = function () {
+        var styleClasses = ['copy_footer', 'main', 'section'];
         if (Array.isArray(styleClasses)) {
             for (var k = 0; k < styleClasses.length; k++) {
                 var all = document.getElementsByClassName(styleClasses[k]);
@@ -10,14 +11,14 @@
             }
             document.getElementsByTagName('body')[0].classList.toggle('dark_mode');
         }
-    }
+    };
 
     var changeSectionTitleFontColor = function (color) {
         var all = document.getElementsByClassName('section_title');
         for (var i = 0; i < all.length; i++) {
             all[i].style.color = color;
         }
-    }
+    };
 
     var openFileSelectWindow = function (accept, multy = false, callback) {
         var inputElement = document.createElement("input");
@@ -30,7 +31,7 @@
             inputElement.addEventListener("change", callback);
         }
         inputElement.dispatchEvent(new MouseEvent("click"));
-    }
+    };
 
     var downloadJsonFile = function (content, fileName, contentType) {
         var a = document.createElement("a");
@@ -38,7 +39,7 @@
         a.href = URL.createObjectURL(file);
         a.download = fileName;
         a.click();
-    }
+    };
 
     var getSectionValueByName = function (sectionId) {
         return document.querySelector('#' + sectionId + ' > div.section_editable').innerText;
@@ -47,6 +48,22 @@
     var setSectionValueByName = function (sectionId, innerValue) {
         document.querySelector('#' + sectionId + ' > div.section_editable').innerText = innerValue;
     };
+
+    var checkCookieIsdarkMode = function () {
+        var isDarkMode = docCookies.getItem("dark_mode");
+        if (isDarkMode != null && isDarkMode == "true") {
+            return true;
+        }
+        return false;
+    };
+
+    (function () {
+        if (checkCookieIsdarkMode()) {
+            switchPageThemeMode();
+        }
+        var themeColor = docCookies.getItem("theme_color");
+        changeSectionTitleFontColor(themeColor);
+    })();
 
     window.onbeforeunload = function (e) {
         return 'Reload site?';
@@ -132,21 +149,30 @@
 
     document.getElementById('color_black').onclick = function () {
         changeSectionTitleFontColor('black');
+        docCookies.setItem("theme_color", 'black');
     }
 
     document.getElementById('color_red').onclick = function () {
         changeSectionTitleFontColor('#ef7a7a');
+        docCookies.setItem("theme_color", '#ef7a7a');
     }
 
     document.getElementById('color_blue').onclick = function () {
         changeSectionTitleFontColor('#7a9def');
+        docCookies.setItem("theme_color", '#7a9def');
     }
 
     document.getElementById('color_green').onclick = function () {
         changeSectionTitleFontColor('#64BE64');
+        docCookies.setItem("theme_color", '#64BE64');
     }
 
     document.getElementById('theme_mode').onclick = function () {
-        switchPageThemeMode(['copy_footer', 'main', 'section']);
+        if (checkCookieIsdarkMode()) {
+            docCookies.setItem("dark_mode", false);
+        } else {
+            docCookies.setItem("dark_mode", true);
+        }
+        switchPageThemeMode();
     }
 })()
