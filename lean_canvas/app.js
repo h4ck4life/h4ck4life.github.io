@@ -1,5 +1,17 @@
 (function () {
 
+    var switchPageThemeMode = function (styleClasses) {
+        if (Array.isArray(styleClasses)) {
+            for (var k = 0; k < styleClasses.length; k++) {
+                var all = document.getElementsByClassName(styleClasses[k]);
+                for (var i = 0; i < all.length; i++) {
+                    all[i].classList.toggle('dark_mode');
+                }
+            }
+            document.getElementsByTagName('body')[0].classList.toggle('dark_mode');
+        }
+    }
+
     var changeSectionTitleFontColor = function (color) {
         var all = document.getElementsByClassName('section_title');
         for (var i = 0; i < all.length; i++) {
@@ -132,5 +144,9 @@
 
     document.getElementById('color_green').onclick = function () {
         changeSectionTitleFontColor('#64BE64');
+    }
+
+    document.getElementById('theme_mode').onclick = function () {
+        switchPageThemeMode(['copy_footer', 'main', 'section']);
     }
 })()
