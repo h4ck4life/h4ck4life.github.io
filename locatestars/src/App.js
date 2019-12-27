@@ -24,10 +24,11 @@ function App() {
           scale="6 6 18"
           /* animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 1000; loop: true" */>
         </a-box>
-        <a-camera gps-camera="minDistance: 0;" rotation-reader>
-          <a-cursor>
-            <a-image width="0.17" height="0.1" src="#prayermatTexture"></a-image>
+        <a-camera gps-camera rotation-reader>
+          <a-cursor material="opacity: 0;" position="0 0 -1">
+            
           </a-cursor>
+          <a-image position="0 0 -.99" width="0.17" height="0.1" src="#prayermatTexture"></a-image>
         </a-camera>
       </a-scene>
     </div>
