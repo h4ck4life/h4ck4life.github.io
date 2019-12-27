@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/locatestars/build/static/css/main.7cc78d79.chunk.css",
-    "main.js": "/locatestars/build/static/js/main.455317d2.chunk.js",
-    "main.js.map": "/locatestars/build/static/js/main.455317d2.chunk.js.map",
+    "main.js": "/locatestars/build/static/js/main.6194fcf8.chunk.js",
+    "main.js.map": "/locatestars/build/static/js/main.6194fcf8.chunk.js.map",
     "runtime-main.js": "/locatestars/build/static/js/runtime-main.0ed3c495.js",
     "runtime-main.js.map": "/locatestars/build/static/js/runtime-main.0ed3c495.js.map",
     "static/js/2.e506a0e1.chunk.js": "/locatestars/build/static/js/2.e506a0e1.chunk.js",
     "static/js/2.e506a0e1.chunk.js.map": "/locatestars/build/static/js/2.e506a0e1.chunk.js.map",
     "index.html": "/locatestars/build/index.html",
-    "precache-manifest.9189e24d3db69ee6fe03865b450f76a7.js": "/locatestars/build/precache-manifest.9189e24d3db69ee6fe03865b450f76a7.js",
+    "precache-manifest.65b0036d3f9acf8cbe1bb7d81415dfd6.js": "/locatestars/build/precache-manifest.65b0036d3f9acf8cbe1bb7d81415dfd6.js",
     "service-worker.js": "/locatestars/build/service-worker.js",
     "static/css/main.7cc78d79.chunk.css.map": "/locatestars/build/static/css/main.7cc78d79.chunk.css.map",
     "static/js/2.e506a0e1.chunk.js.LICENSE": "/locatestars/build/static/js/2.e506a0e1.chunk.js.LICENSE",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.0ed3c495.js",
     "static/js/2.e506a0e1.chunk.js",
     "static/css/main.7cc78d79.chunk.css",
-    "static/js/main.455317d2.chunk.js"
+    "static/js/main.6194fcf8.chunk.js"
   ]
 }
