@@ -2,6 +2,7 @@
   "name": "locatestars",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://h4ck4life.github.io/locatestars/build",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
